@@ -1,8 +1,5 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-//import { Poppins } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { poppins } from '@/utils/fonts'
 
 export const metadata = {
   title: 'Age Calculator App',
@@ -12,7 +9,7 @@ export const metadata = {
 export default function RootLayout( {children,}: { children: React.ReactNode }) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         {children}
       </body>
     </html>
