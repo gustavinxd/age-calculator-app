@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import {z} from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from './../components/input/Input';
+import { IconArrow } from './../components/Icon-arrow';
 
 const today = new Date()
 const dayNow = today.getDate() 
@@ -55,40 +56,48 @@ export default function Home() {
   
   return (
     <main className={`flex flex-col items-center justify-center h-screen gap-4`}>
-      <div className={`flex flex-col items-center justify-between bg-white w-1/2 p-4 gap-4`}>
+      <div className={`flex flex-col items-center justify-between
+                     bg-white p-10 rounded-2xl w-1/2`}>
 
-        
+        <form onSubmit={handleSubmit(handleForm)} className={`flex gap-9 pb-10 border-b-2 w-full
+                                                              relative`}>
+  
+              <Input
+              {...register('day', {setValueAs: (value: string) => parseInt(value, 10)})}
+              type='number'
+              placeholder='DD'
+              label='DAY'
+              helperText={errors.day?.message}
+              />
 
-        <form onSubmit={handleSubmit(handleForm)}>
+              <Input
+              {...register('month', {setValueAs: (value: string) => parseInt(value, 10)})}
+              type='number'
+              placeholder='MM'
+              label='MONTH'
+              helperText={errors.month?.message}
+              />
 
-          <Input
-          {...register('day', {setValueAs: (value: string) => parseInt(value, 10)})}
-          type='number'
-          placeholder='DD'
-          label='DAY'
-          helperText={errors.day?.message}
-          />
+              <Input
+              {...register('year', {setValueAs: (value: string) => parseInt(value, 10)})}
+              type='number'
+              placeholder='YYYY'
+              label='YEAR'
+              helperText={errors.year?.message}
+              />
 
-          <Input
-          {...register('month', {setValueAs: (value: string) => parseInt(value, 10)})}
-          type='number'
-          placeholder='MM'
-          label='MONTH'
-          helperText={errors.month?.message}
-          />
-
-          <Input
-          {...register('year', {setValueAs: (value: string) => parseInt(value, 10)})}
-          type='number'
-          placeholder='YYYY'
-          label='YEAR'
-          helperText={errors.year?.message}
-          />
+              <button type="submit" className={`bg-purple rounded-full p-5
+                                                absolute -right-0 -bottom-10`}> 
+                <IconArrow width={46} height={44}/> 
+              </button>
 
 
+          </form>
 
-          <button type="submit">Enviar</button>
-        </form>
+          <div className={``}>
+            Resultados
+          </div>
+
       </div>
     </main>
   )
