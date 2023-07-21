@@ -3,32 +3,32 @@ import localFont from '@next/font/local'
 export const poppins = localFont({
     src:[
       {
-      path: '../fonts/Poppins-Regular.ttf',
+      path: './fonts/Poppins-Regular.ttf',
       weight: '400',
       style: 'normal'
     },
       {
-      path: '../fonts/Poppins-Italic.ttf',
+      path: './fonts/Poppins-Italic.ttf',
       weight: '400',
       style: 'italic'
     },
       {
-      path: '../fonts/Poppins-Bold.ttf',
+      path: './fonts/Poppins-Bold.ttf',
       weight: '700',
       style: 'normal'
     },
       {
-      path: '../fonts/Poppins-BoldItalic.ttf',
+      path: './fonts/Poppins-BoldItalic.ttf',
       weight: '700',
       style: 'italic'
     },
       {
-      path: '../fonts/Poppins-ExtraBold.ttf',
+      path: './fonts/Poppins-ExtraBold.ttf',
       weight: '800',
       style: 'normal'
     },
       {
-      path: '../fonts/Poppins-ExtraBoldItalic.ttf',
+      path: './fonts/Poppins-ExtraBoldItalic.ttf',
       weight: '800',
       style: 'italic'
     },

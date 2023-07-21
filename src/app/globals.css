@@ -3,10 +3,16 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: hsl(0, 6%, 6%);
+  --color-primary: hsl(0, 1%, 44%);
 }
 
 body {
   color: rgb(var(--color-primary));
   background-color: hsl(0, 0%, 94%);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
