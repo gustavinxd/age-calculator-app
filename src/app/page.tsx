@@ -5,6 +5,7 @@ import {z} from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from './../components/input/Input';
 import { IconArrow } from './../components/Icon-arrow';
+import { useState } from 'react';
 
 const today = new Date()
 const dayNow = today.getDate() 
@@ -41,6 +42,11 @@ const schema = z.object({
 type FormProps = z.infer<typeof schema>
 
 export default function Home() {
+  
+  const [years, setYears] = useState('--'); 
+  const [months, setMonths] = useState('--');
+  const [days, setDays] = useState('--');
+
 
   const {register, handleSubmit, formState: { errors } } = useForm<FormProps>({
     mode:'all',
@@ -57,7 +63,7 @@ export default function Home() {
   return (
     <main className={`flex flex-col items-center justify-center h-screen gap-4`}>
       <div className={`flex flex-col items-center justify-between
-                     bg-white p-10 rounded-2xl w-1/2`}>
+                     bg-white p-10 rounded-2xl w-1/2 rounded-br-[256px]`}>
 
         <form onSubmit={handleSubmit(handleForm)} className={`flex gap-9 pb-10 border-b-2 w-full
                                                               relative`}>
@@ -87,18 +93,23 @@ export default function Home() {
               />
 
               <button type="submit" className={`bg-purple rounded-full p-5
-                                                absolute -right-0 -bottom-10`}> 
+                                                absolute -right-0 -bottom-10
+                                                hover:bg-off-black`}> 
                 <IconArrow width={46} height={44}/> 
               </button>
 
 
           </form>
 
-          <div className={``}>
-            Resultados
+          <div className={`w-full text-off-black text-8xl font-extrabold italic p-4 my-5`}>
+            <h1><span className={`text-purple`}>{years}</span>years</h1>
+            <h1><span className={`text-purple`}>{months}</span> months</h1>
+            <h1><span className={`text-purple`}>{days}</span> days</h1>
+            
           </div>
 
       </div>
     </main>
   )
 }
+
