@@ -43,9 +43,9 @@ type FormProps = z.infer<typeof schema>
 
 export default function Home() {
   
-  const [years, setYears] = useState('--'); 
-  const [months, setMonths] = useState('--');
-  const [days, setDays] = useState('--');
+  const [years, setYears] = useState('- -'); 
+  const [months, setMonths] = useState('- -');
+  const [days, setDays] = useState('- -');
 
 
   const {register, handleSubmit, formState: { errors } } = useForm<FormProps>({
@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <main className={`flex flex-col items-center justify-center h-screen gap-4`}>
       <div className={`flex flex-col items-center justify-between
-                     bg-white p-10 rounded-2xl w-1/2 rounded-br-[256px]`}>
+                     bg-white p-10 rounded-2xl w-1/2 rounded-br-[220px]`}>
 
         <form onSubmit={handleSubmit(handleForm)} className={`flex gap-9 pb-10 border-b-2 w-full
                                                               relative`}>
